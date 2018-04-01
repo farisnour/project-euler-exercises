@@ -21,13 +21,13 @@ val input =
     |05886116467109405077541002256983155200055935729725
     |71636269561882670428252483600823257530420752963450
   """.stripMargin.replaceAll("\n", "")
-
 val answer = input.sliding(13).map(s => (s, prodOfPiece(s))).maxBy(_._2)
+
+def prodOfPiece(piece: String) = piece.toList.map(_.asDigit.toLong).product
 
 println("Question:")
 println("Find the thirteen adjacent digits in the 1000-digit number that have the greatest product.")
 println("What is the value of this product?\n")
-println("Answer:")
-println(s"The answer is: ${answer._2}")
 
-def prodOfPiece(piece: String) = piece.toList.map(_.asDigit.toLong).product
+println("Answer:")
+println(s"The answer is: ${answer._2}") // 23514624000
